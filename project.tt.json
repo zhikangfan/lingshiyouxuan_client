@@ -1,0 +1,9 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "lingshiyouxuan_client",
+  "appid": "testAppId",
+  "setting": {
+    "es6": false,
+    "minified": false
+  }
+}
