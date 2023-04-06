@@ -262,5 +262,129 @@ page {
   }
 }
 
+.buy-container {
+  .buy-container-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 35px;
+    border-bottom: 2px solid #f6f7f8;
+
+    .tips {
+      color: #8e8e8e;
+      font-size: 26px;
+    }
+
+    .order-history-link {
+      color: #3e6b96;
+      font-size: 28px;
+
+      .iconfont {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  .tabs-container {
+    height: calc(100vh - 455px);
+
+    .tabs-container-top .link {
+      color: #3e6b96;
+      font-size: 28px;
+    }
+  }
+
+}
+
+
+.bottom-container {
+  //position: fixed;
+  //bottom: 0;
+  //left: 0;
+  display: flex;
+  z-index: 3;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 25px 35px;
+  background-color: #feffff;
+  width: 100%;
+
+  .total {
+    display: flex;
+    align-items: center;
+    color: rgb(99, 95, 95);
+
+    .shop-count {
+      position: relative;
+      width: 75px;
+      height: 75px;
+      border-radius: 8px;
+      background-color: #ebeaea;
+      margin-right: 20px;
+
+      .iconfont {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: #db635c;
+        font-size: 58px;
+        font-weight: 500;
+      }
+
+      .nums {
+        position: absolute;
+        top: 2px;
+        right: -8px;
+        min-width: 15px;
+        font-size: 24px;
+        height: 30px;
+        line-height: 30px;
+        margin-top: -15px;
+        padding: 0 9px;
+        font-weight: normal;
+        color: white;
+        text-align: center;
+        background: #db635c;
+        border-radius: 20px;
+        background-image: -webkit-linear-gradient(top, #e8616c, #dd202f);
+        background-image: -moz-linear-gradient(top, #e8616c, #dd202f);
+        background-image: -o-linear-gradient(top, #e8616c, #dd202f);
+        background-image: linear-gradient(to bottom, #e8616c, #dd202f);
+      }
+    }
+
+    .title {
+      font-size: 26px;
+    }
+
+    .price {
+      font-weight: 500;
+      color: #dd202f;
+      font-size: 35px;
+    }
+  }
+
+  .button {
+    background-color: #dd202f;
+    color: #fff;
+    height: 80px;
+    width: 240px;
+    text-align: center;
+    line-height: 80px;
+    border-radius: 40px;
+    margin: 0;
+    font-weight: 600;
+    &.disabled {
+      background-color: #bdbdbd;
+    }
+
+  }
+
+}
+
 
 

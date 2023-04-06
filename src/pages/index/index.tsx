@@ -1,53 +1,129 @@
-// import { Component, PropsWithChildren } from 'react'
-import { View, Button } from '@tarojs/components'
-import Taro from '@tarojs/taro'
+import {View, Image, Text, Navigator} from '@tarojs/components'
+import cs from 'classnames'
+import {useState} from 'react'
+// import Taro from '@tarojs/taro'
+import s from './index.module.scss'
 
+// import Vtabs from '../../components/Vtabs'
+
+enum PageType {
+  BUY_PAGE = 'buy-page',
+  DYNAMIC_PAGE = 'dynamic-page'
+}
 
 function Index() {
-  async function getPhoneNumber(e) {
-    let { errMsg, code } = e.detail;
-    if (errMsg === 'getPhoneNumber:ok') {
-      let res = await Taro.request({
-        method: 'POST',
-        url: 'http://127.0.0.1:3070/api/phone',
-        data: {
-          code: code
-        }
-      })
-      console.log(res, "获取手机号")
-    }
-    console.log(e)
-    // cloudID: "67_S3Ap1vCtmDS4KwI4J1oRoExY1JiCJfdFWACN1ulVqhBAFhYC9qkPpMiBpk8"
-    // code: "77d2ac8ff8aff75ab05271e5b63a3f27298b131427db8602effe6f14b81c4931"
-    // encryptedData: "aug6eagaFD5QW0Mrr2anq0VPo1nrNZgcpnmOIPK/dqw/8hFGI+A/3GOCtp1tzPEZd6TeHLz3pWn8BUfpRDhyS1hnE8L/d4nf++83ZKILCtplETqQHHodqysySJk5m9TndSLxghZhquh9M98e+qlkEZFGQSWKs75IKIl+XvTuNMjbTVqFcWSVPyLqLyBwieCgs8RkcdUJ94miwqc3DOQZOA=="
-    // errMsg: "getPhoneNumber:ok"
-    // iv: "/J58pGTfG/yj3dRs73kRGw=="
-    //
+  const [hidden, setHidden] = useState<boolean>(false)
+  const [currentPage, setCurrentPage] = useState<'buy-page' | 'dynamic-page'>(PageType.BUY_PAGE)
+  const [allBuys] = useState<number>(0)
+  const [totalAmount] = useState<number>(0)
+  const [isCloseAnAccount] = useState<boolean>(false)
+
+  function showCallDialog() {
 
   }
 
-  async function wxLogin() {
-    let loginResults = await Taro.login()
-    if (loginResults.code) {
-      let res = await Taro.request({
-        method: 'POST',
-        url: 'http://127.0.0.1:3070/api/user/wx/login',
-        data: {
-          code: loginResults.code,
-          userInfo: {
-            name: 'jack',
-            age: 18
-          }
-        }
-      })
-      console.log(res, '登录结果');
-    } else {
-      console.log('登录失败', loginResults)
-    }
+  function showModal() {
+    setHidden(!hidden)
   }
-  return <View>
-    <Button open-type='getPhoneNumber' onGetPhoneNumber={getPhoneNumber}>获取手机号</Button>
-    <Button onTap={wxLogin}>登录</Button>
-  </View>
+
+  function payment() {
+
+  }
+
+  function handleShopCar() {
+
+  }
+
+  function jumpOrder() {
+
+  }
+
+  return <>
+    <View className={s['page-container']}>
+      <View className={cs(s['store-info-container'], {
+        [s.scale]: hidden
+      })}
+      >
+        <Image src='https://service.haloworld.icu/images/store-bg.jpg' className={s['bg-image']}></Image>
+        <View className={s['store-content-container']}>
+          <View className={s['store-content-top']}>
+            <View className={cs(s['iconfont'], 'icon-wodekefu', 'iconfont')} onTap={showCallDialog}></View>
+          </View>
+          <View className={s['store-content-bottom']}>
+            <View className={s['store-info-box']}>
+              <Image src='https://service.haloworld.icu/images/store-logo.png' className={s['store-logo']}></Image>
+              <View className={s['store-info-box-right']}>
+                <View className={s['store-info']}>
+                  <Text className={s['store-name']}>零食优选 ｜ 怀化学院店</Text>
+                  <View className={s['iconfont']} onTap={showModal}>
+                    <Text className={cs('icon-xiajiantou')}></Text>
+                  </View>
+                </View>
+                <Text className={s['slogan']}>生活优+，零食优选</Text>
+              </View>
+            </View>
+            <View className={s['payment-container']} onTap={payment}>
+              <Text className={cs([s['iconfont'], 'icon-erweima', 'iconfont'])}></Text>
+              <Text className={s['text']}>付款</Text>
+            </View>
+          </View>
+
+        </View>
+
+      </View>
+      <View className={s['main-container']}>
+        <View className={s['main-container-top']}>
+          <View className={cs(s['title'], {[s['current']]: currentPage === PageType.DYNAMIC_PAGE})} onTap={() => {
+            setCurrentPage(PageType.DYNAMIC_PAGE)
+          }}
+          >动态
+          </View>
+          <View className={cs(s['title'], {[s['current']]: currentPage === PageType.BUY_PAGE})} onTap={() => {
+            setCurrentPage(PageType.BUY_PAGE)
+          }}
+          >下单
+          </View>
+        </View>
+        <View className={s['show-container']}>
+          {/*动态页*/}
+          <View className={cs(s['dynamic-container'], {[s['show']]: currentPage === PageType.DYNAMIC_PAGE})}>
+
+            <View className={s['dynamic-list']} style={{display: 'none'}}>
+
+            </View>
+            <View className={s.null}>
+              <Text className={cs('iconfont', 'icon-meiyouxiaoxi', s.iconfont)}></Text>
+              <Text className={s.text}>暂无历史动态</Text>
+            </View>
+          </View>
+          {/*下单页*/}
+          <View className={cs(s['buy-container'], {[s['show']]: currentPage === PageType.BUY_PAGE})}>
+            <View className={s['buy-container-top']}>
+              <Text className={s['tips']}>定点取货免费配送</Text>
+              <Navigator url='/pages/orders/index' openType='navigate' className={s['order-history-link']}>
+                <Text className={cs('iconfont', 'icon-wodedingdan', s.iconfont)}></Text>
+                我的订单
+              </Navigator>
+            </View>
+
+          </View>
+        </View>
+      </View>
+      {currentPage === PageType.BUY_PAGE && (
+        <View className={s['bottom-container']}>
+          <View className={s.total}>
+            <View className={s['shop-count']} onTap={handleShopCar}>
+              <Text className={cs(s.iconfont, 'iconfont', 'icon-shouye')}></Text>
+              <Text className={s['nums']}>{allBuys}</Text>
+            </View>
+            <Text className={s.title}>合计：</Text>
+            <Text className={s.price}>¥{totalAmount}</Text>
+          </View>
+          <View className={cs(s.button, {[s.disabled]: isCloseAnAccount})} onTap={jumpOrder}>去结算</View>
+        </View>
+      )}
+    </View>
+  </>
 }
+
 export default Index;
