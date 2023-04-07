@@ -8,38 +8,39 @@ interface TabItem {
 }
 
 interface VtabsProps {
-  tabBarClass: string,
-  vtabs: TabItem[],
-  activeClass: string,
-  tabLineColor: string,
-  tabInactiveTextColor: string,
-  tabActiveTextColor: string,
-  tabInactiveBgColor: string,
-  tabActiveBgColor: string,
-  activeTab: number,
+  tabBarClass?: string,
+  vtabs?: TabItem[],
+  activeClass?: string,
+  tabLineColor?: string,
+  tabInactiveTextColor?: string,
+  tabActiveTextColor?: string,
+  tabInactiveBgColor?: string,
+  tabActiveBgColor?: string,
+  activeTab?: number,
   animation?: boolean,
-  bindTabClick?: () => void,
+  bindTabClick?: ({index}:{index: number}) => void,
   bindChange?: () => void
 }
 
 function Index(props: VtabsProps) {
   let {
-    vtabs,
-    tabBarClass,
-    activeClass,
-    activeTab,
-    tabActiveBgColor,
-    tabInactiveBgColor,
-    tabActiveTextColor,
-    tabInactiveTextColor,
-    tabLineColor,
+    vtabs = [],
+    tabBarClass = '',
+    activeClass = '',
+    activeTab = 0,
+    tabActiveBgColor = '#ffffff',
+    tabInactiveBgColor = '#eeeeee',
+    tabActiveTextColor = '#ff0000',
+    tabInactiveTextColor = '#000000',
+    tabLineColor = '#ff0000',
+    animation = true,
     bindTabClick,
     bindChange
   } = props;
-  const [animation, setAnimation] = useState<boolean>(false)
   const [contentScrollTop, setContentScrollTop] = useState<number>(0)
   const [currentView, setCurrentView] = useState<number>(0)
   const [_heightRecords, set_heightRecords] = useState<Array<any>>([])
+  const [_contentHeight, set_contentHeight] = useState<object>({})
 
   function handleContentScroll() {
 
