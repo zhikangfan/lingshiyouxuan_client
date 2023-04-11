@@ -36,6 +36,14 @@
     "Android >= 4.1",
     "ios >= 8"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhikangfan/lingshiyouxuan_client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zhikangfan/lingshiyouxuan_client/issues"
+  },
+  "homepage": "https://github.com/zhikangfan/lingshiyouxuan_client#readme",
   "author": "Fanzhikang",
   "dependencies": {
     "@babel/runtime": "^7.7.7",
