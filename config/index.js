@@ -9,16 +9,11 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: [
-    ['@tarojs/plugin-html']
-  ],
-  defineConstants: {
-  },
+  plugins: [['@tarojs/plugin-html']],
+  defineConstants: {},
   copy: {
-    patterns: [
-    ],
-    options: {
-    }
+    patterns: [],
+    options: {}
   },
   framework: 'react',
   compiler: 'webpack4',
@@ -26,9 +21,7 @@ const config = {
     postcss: {
       pxtransform: {
         enable: true,
-        config: {
-
-        }
+        config: {}
       },
       url: {
         enable: true,
@@ -51,8 +44,7 @@ const config = {
     postcss: {
       autoprefixer: {
         enable: true,
-        config: {
-        }
+        config: {}
       },
       cssModules: {
         enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
@@ -67,7 +59,7 @@ const config = {
     appName: 'taroDemo',
     postcss: {
       cssModules: {
-        enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+        enable: false // 默认为 false，如需使用 css modules 功能，则设为 true
       }
     }
   }

@@ -1,7 +1,15 @@
 {
-  "extends": ["taro/react"],
+  "extends": ["taro/react", "plugin:prettier/recommended"],
   "rules": {
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "import/no-commonjs": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "none",
+        "semi": false
+      }
+    ]
   }
 }

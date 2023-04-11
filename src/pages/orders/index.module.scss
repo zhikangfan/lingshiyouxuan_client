@@ -1,7 +1,5 @@
 .page-container {
   padding: 45px 35px;
-
-
 }
 .loading-box {
   display: flex;
@@ -13,13 +11,11 @@
   color: #8e8e8e;
 
   .iconfont {
-
     font-size: 90px;
     animation: myrotate 1s linear infinite;
   }
 
   .text {
-
     font-size: 26px;
   }
 }
@@ -31,12 +27,9 @@
     transform: translateY(-15px);
   }
   100% {
-    transform: translateY(0)
+    transform: translateY(0);
   }
 }
-
-
-
 
 .null-container {
   display: flex;
@@ -57,6 +50,3 @@
     color: #adadad;
   }
 }
-
-
-

@@ -2,10 +2,9 @@
 import { View, Button } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 
-
 function Index() {
   async function getPhoneNumber(e) {
-    let { errMsg, code } = e.detail;
+    let { errMsg, code } = e.detail
     if (errMsg === 'getPhoneNumber:ok') {
       let res = await Taro.request({
         method: 'POST',
@@ -14,7 +13,7 @@ function Index() {
           code: code
         }
       })
-      console.log(res, "获取手机号")
+      console.log(res, '获取手机号')
     }
     console.log(e)
     // cloudID: "67_S3Ap1vCtmDS4KwI4J1oRoExY1JiCJfdFWACN1ulVqhBAFhYC9qkPpMiBpk8"
@@ -23,7 +22,6 @@ function Index() {
     // errMsg: "getPhoneNumber:ok"
     // iv: "/J58pGTfG/yj3dRs73kRGw=="
     //
-
   }
 
   async function wxLogin() {
@@ -40,14 +38,18 @@ function Index() {
           }
         }
       })
-      console.log(res, '登录结果');
+      console.log(res, '登录结果')
     } else {
       console.log('登录失败', loginResults)
     }
   }
-  return <View>
-    <Button open-type='getPhoneNumber' onGetPhoneNumber={getPhoneNumber}>获取手机号</Button>
-    <Button onTap={wxLogin}>登录</Button>
-  </View>
+  return (
+    <View>
+      <Button open-type="getPhoneNumber" onGetPhoneNumber={getPhoneNumber}>
+        获取手机号
+      </Button>
+      <Button onTap={wxLogin}>登录</Button>
+    </View>
+  )
 }
-export default Index;
+export default Index

@@ -6,7 +6,7 @@
     transform: translateY(-15px);
   }
   100% {
-    transform: translateY(0)
+    transform: translateY(0);
   }
 }
 
@@ -29,14 +29,11 @@ page {
 }
 
 .loading-box {
-
   .iconfont {
-
     font-size: 90px;
     animation: myRotate 1s linear infinite;
   }
   .text {
-
     font-size: 26px;
   }
 }
@@ -75,7 +72,6 @@ page {
         font-size: 18px;
         background-color: #767371;
         transition: all linear 0.15s;
-
       }
 
       .store-name {
@@ -98,7 +94,6 @@ page {
       border-radius: 50%;
       transition: all linear 0.15s;
     }
-
   }
 
   .store-content-container {
@@ -152,7 +147,6 @@ page {
     }
   }
 
-
   &.scale {
     height: 160px;
 
@@ -165,7 +159,6 @@ page {
     }
 
     .store-info-box {
-
       .store-logo {
         width: 60px;
         height: 60px;
@@ -215,15 +208,12 @@ page {
         border-bottom: 4px solid #000;
       }
     }
-
   }
 }
 
 .active {
   font-weight: 600;
 }
-
-
 
 .show-container {
   margin-top: 15px;
@@ -232,7 +222,6 @@ page {
     display: none;
 
     .null {
-
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -246,7 +235,6 @@ page {
       .text {
         font-size: 26px;
       }
-
     }
 
     &.show {
@@ -296,9 +284,7 @@ page {
       font-size: 28px;
     }
   }
-
 }
-
 
 .bottom-container {
   //position: fixed;
@@ -382,10 +368,5 @@ page {
     &.disabled {
       background-color: #bdbdbd;
     }
-
   }
-
 }
-
-
-

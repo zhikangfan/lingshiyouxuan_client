@@ -1,6 +1,6 @@
 export interface Product {
-  product_name: string,
-  total: number,
+  product_name: string
+  total: number
   count: number
 }
 export enum OrderType {
@@ -15,16 +15,16 @@ export enum OrderStatus {
 }
 export interface Order {
   status: 'queue' | 'done' | 'cancel'
-  total_amount: number,
-  order_id: string,
-  type_title: string,
-  ctime: string,
-  address: string,
-  addressee: string,
-  phone_number: string,
-  time: string,
-  remarks: string,
-  isShowDetail: boolean,
-  type: 'shipping-address' | 'to-the-store' | 'appointed-time',
+  total_amount: number
+  order_id: string
+  type_title: string
+  ctime: string
+  address: string
+  addressee: string
+  phone_number: string
+  time: string
+  remarks: string
+  isShowDetail: boolean
+  type: 'shipping-address' | 'to-the-store' | 'appointed-time'
   order_products: Array<Product>
 }
