@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 . "$(dirname -- "$0")/common.sh"
-
+yarn changelog
+git add CHANGELOG.md
 yarn lint-fix
 yarn prettier
