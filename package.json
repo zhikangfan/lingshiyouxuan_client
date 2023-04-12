@@ -29,7 +29,8 @@
     "dev:quickapp": "npm run build:quickapp -- --watch",
     "postinstall": "husky install",
     "lint-fix": "eslint --fix",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "browserslist": [
     "last 3 versions",
@@ -66,8 +67,7 @@
     "classnames": "^2.3.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "taro-ui": "^2.3.4",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "taro-ui": "^2.3.4"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
